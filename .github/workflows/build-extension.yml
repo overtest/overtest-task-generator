@@ -1,0 +1,43 @@
+name: build-extension
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+      - develop
+  push:
+    branches:
+      - main
+      - develop
+  release:
+    types: [published]
+jobs:
+  build:
+    name: Build and bundle VS Code extension
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Clone repository from origin
+        uses: actions/checkout@v3
+      - name: Install latest Node.JS LTS release
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Install project dependencies
+        run: npm install
+      - name: Try to compile an extension
+        run: npm run compile
+      - name: Install VS Code Extension Manager
+        run: |
+          npm install --global vsce
+          vsce --version
+      - name: Bundle an extension package
+        run: vsce package --pre-release --out overtest-task-generator.vsix
+      - name: Upload an extension package
+        uses: actions/upload-artifact@v3
+        with:
+          name: extension-vsix-package
+          path: overtest-task-generator.vsix
+          if-no-files-found: error

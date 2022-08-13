@@ -1,0 +1,72 @@
+:root {
+    --default-space: 10px;
+    --default-space-half: 5px;
+}
+
+main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    margin-bottom: var(--default-space-half);
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: var(--default-space);
+    padding-bottom: var(--default-space);
+}
+
+vscode-text-field, p {
+    display: block;
+    margin-bottom: var(--default-space);
+}
+vscode-checkbox {
+    margin-bottom: var(--default-space);
+}
+
+form {
+    width: 100%;
+    padding: var(--default-space-half);
+}
+
+fieldset {
+    padding-top: var(--default-space-half);
+    padding-left: var(--default-space);
+    padding-right: var(--default-space);
+    padding-bottom: 0;
+
+    margin-bottom: var(--default-space);
+}
+fieldset legend {
+    padding-left: var(--default-space-half);
+    padding-right: var(--default-space-half);
+}
+
+/* Simplest CSS reboot */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Disable user select and drag capabilities */
+:not(input):not(textarea):not(pre):not(code):not(.selectable),
+:not(input):not(textarea):not(pre):not(code):not(.selectable)::after,
+:not(input):not(textarea):not(pre):not(code):not(.selectable)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+code, .selectable {
+    -webkit-user-select: text !important;
+    user-select: text !important;
+}

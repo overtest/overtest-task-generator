@@ -1,2 +1,5 @@
-# overtest-task-generator
-A simple way to create new programming task for Overtest, using your favorite code editor - VS Code 😃.
+# Overtest Task Generator
+
+**Overtest Task Generator** is a Visual Studio Code extension that would help you create new programming tasks for [Overtest](https://github.com/overtest) more easily and conveniently.
+
+![Screenshot](./screenshot.png)
